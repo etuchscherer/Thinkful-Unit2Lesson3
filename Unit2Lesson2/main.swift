@@ -8,20 +8,39 @@
 
 import Foundation
 
-var myFirstCar = CarFactory()
+//This is the first category of cars
+var myRegularCar = Car()
+myRegularCar.setupCarDetailsWithName ("Regular car", colorOfCar: "Red", horsepowerOfCar: 200, automaticOptionOfCar: true)
 
-myFirstCar.name = "Mustang"
-myFirstCar.color = "Red"
-myFirstCar.horsepower = 200
-myFirstCar.automaticOption = true
 
-println("My \(myFirstCar.name) is \(myFirstCar.color) and has \(myFirstCar.horsepower) horsepowers")
+//This is second category of cars: a Turbo car
+var myTurboCar = TurboCar()
 
-var mySecondCar = CarFactory()
+println()
 
-mySecondCar.name = "BMW"
-mySecondCar.color = "Blue"
-mySecondCar.horsepower = 300
-mySecondCar.automaticOption = false
+myTurboCar.setupCarDetailsWithName("Turbo Car", colorOfCar: "Blue", horsepowerOfCar: 300, automaticOptionOfCar: true)
+println(myTurboCar.turboCarSpecs("B", aSpoiler: true))
 
-println("My \(mySecondCar.name) is \(mySecondCar.color) and has \(mySecondCar.horsepower) horsepowers")
+println()
+
+var myHybridCar = HybridCar()
+
+myHybridCar.setupCarDetailsWithName("Hybrid", colorOfCar: "Yellow", horsepowerOfCar: 90, automaticOptionOfCar: true)
+
+println()
+
+//This is the fourth category of cars: a Pickup Truck
+var myPickupTruck = PickupTruck()
+
+//Scenario 1  - Use the setter to work back to calculate the length and width
+myPickupTruck.totalCargoArea = 3000.0
+
+println()
+println("The Truck's cargo bed length is: \(myPickupTruck.cargoBedLength) and the cargo bed width is \(myPickupTruck.cargoBedWidth) and the total cargo area is \(myPickupTruck.totalCargoArea)")
+
+//Scenario 2  - Set the length and width of cargo area and use only the getter to calculate the area
+myPickupTruck.cargoBedLength = 50
+myPickupTruck.cargoBedWidth = 60
+
+println()
+println("The Truck's cargo bed length is: \(myPickupTruck.cargoBedLength) and the cargo bed width is \(myPickupTruck.cargoBedWidth) and the total cargo area is \(myPickupTruck.totalCargoArea)")
